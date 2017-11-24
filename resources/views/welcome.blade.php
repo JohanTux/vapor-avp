@@ -82,7 +82,69 @@
                 <div class="title m-b-md">
                     vapor
                 </div>
+                
+{{-- Picture Scroller section --}}
+      <ul class="pic-section" >
+        <li class="slide1" >
+          @for ($i = 0; $i<6; $i++)
+            <img class="slides fadein" src="{{$imagename[$i]}}">
+        @endfor 
 
+        </li> 
+        <li class="slide2">
+          @for ($i = 7; $i<13; $i++)
+            <img class="slides2 fadein" src="{{$imagename[$i]}}">
+          @endfor 
+        </li> 
+
+        <li class="slide3">
+          @for ($i = 14; $i<20; $i++)
+            <img class="slides3 fadein" src="{{$imagename[$i]}}">
+          @endfor 
+        </li> 
+      </ul>
+<script>
+var myIndex = 0;
+var myIndex2 = 0;
+var myIndex3 = 0;
+carousel();
+carousel2();
+carousel3();
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("slides");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 9750); // Change image every 10 seconds
+}
+function carousel2() {
+    var i;
+    var x = document.getElementsByClassName("slides2");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";  
+    }
+    myIndex2++;
+    if (myIndex2 > x.length) {myIndex2 = 1}    
+    x[myIndex2-1].style.display = "block";  
+    setTimeout(carousel2, 11750); // Change image every 12 seconds
+}
+function carousel3() {
+    var i;
+    var x = document.getElementsByClassName("slides3");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";  
+    }
+    myIndex3++;
+    if (myIndex3 > x.length) {myIndex3 = 1}    
+    x[myIndex3-1].style.display = "block";  
+    setTimeout(carousel3, 13750); // Change image every 14 seconds
+}
+</script>
+{{--end  Picture Scroller section --}}
                 <div class="links">
                     <a href="#">Video</a>
                     <a href="#">Audio</a>

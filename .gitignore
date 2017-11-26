@@ -3,6 +3,7 @@
 /public/storage
 /public/soundbites/*.wav
 /public/soundbites/*.mp3
+/public/VP
 /storage/*.key
 /vendor
 /.idea

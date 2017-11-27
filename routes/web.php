@@ -15,6 +15,7 @@
 //     return view('welcome');
 // });
 Route::get('/', 'MasterController@index');
+Route::get('/slideshow', 'PhotoSlideshowController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

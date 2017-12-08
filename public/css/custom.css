@@ -11,13 +11,16 @@
   align-content: space-between;
 	background-image: url(/images/Web_Black_Swatch1.png);
 	background-attachment: fixed;
+
 }
 
 .pic-section img{
   border-radius: 25px;
   box-shadow: -3px 3px 10px rgba(0,0,0,.8);
   margin: .2em;
-  height: 700px;
+  
+  max-height: 650px;
+  max-width: 100%;
   /*max-width: 400px;*/
 
 }

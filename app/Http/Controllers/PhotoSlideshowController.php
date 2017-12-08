@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Photo;
 
 
 class PhotoSlideshowController extends Controller
@@ -14,9 +15,31 @@ class PhotoSlideshowController extends Controller
      */
     public function index(Request $request)
     {
-        $imagepaths = \DB::table('Photo')->orderBy('display_count')->pluck('path');
+        /*
+        $imagepaths = \DB::table('Photo')->orderBy('display_count')->limit(3)->pluck('path');
+        $imageids = \DB::table('Photo')->orderBy('display_count')->limit(3)->pluck('id');
+
+        foreach ($imageids as $imageid){
+            DB::table('Photo')->where('id', $imageid)->increment('display_count');
+        }
+
+        return view('photoSlideshow.index', compact('imagepaths','imagecount'));
+        */
+        $photos = Photo::orderBy('display_count')
+                        ->take(20)
+                        ->get();
+        
+        foreach ($photos as $photo){
+            $imagepaths[] = $photo->path;
+            $photo->display_count = $photo->display_count + 1;
+            $photo->save();
+        }
         $imagecount = count($imagepaths);
         return view('photoSlideshow.index', compact('imagepaths','imagecount'));
+        
+
+
+
     }
 
     /**

@@ -2,30 +2,34 @@
 
 @section('customstyle')
 <link rel="stylesheet" href="/css/custom.css">
+<style>
+.navbar-default {
+    display: none;
+}
+li{
+ list-style-type:none;
+}
+body {
+    background-color: black;
+}
+</style>
 @endsection
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="panel panel-default">
-		<ul class="pic-section" >
-
+<div class="jumbotron" style="background-color:black">
+<div class="col-md-12" style="background-color:black">
+    <ul class="pic-section" style="background-color:black;border-color:navy;">
+        <li>
 	        @foreach ($imagepaths as $imagepath)
 	            <img class="slides fadein" src="{{$imagepath}}">
 	        @endforeach 
 
         </li> 
- 
-
-
-
-
-
-            </div>
-        </div>
-    </div>
+    </ul>
 </div>
+</div>
+
+
 <script>
 var myIndex = 0;
 
@@ -38,7 +42,7 @@ function carousel() {
        x[i].style.display = "none";  
     }
     myIndex++;
-    if (myIndex > x.length) {myIndex = 1}    
+    if (myIndex > x.length) {location.reload(true)}    
     x[myIndex-1].style.display = "block";  
     setTimeout(carousel, 9750); // Change image every 10 seconds
 }

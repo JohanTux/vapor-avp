@@ -14,18 +14,8 @@ class MasterController extends Controller
      */
     public function index()
     {
-        $pictures = \DB::table('Photo')->select('path')->orderby('display_count')->take(30)->get();
-
-        //dd($pictures[0]->filename);
-        $imagename = [];
-
-        foreach ($pictures as $picture) {
-
-            array_push($imagename, $picture->path);
-            
-        }
-        //dd($imagename);
-        return view('welcome', compact('imagename'));
+        
+        return view('welcome');
     }
 
     /**
